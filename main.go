@@ -19,19 +19,25 @@ func main() {
 		benchmarks.BenchmarkBubbleSortMIXED,
 		benchmarks.BenchmarkBubbleSortBACKSORTED,
 		benchmarks.BenchmarkBubbleSortPRESORTED,
-		benchmarks.BenchmarkQsortMIXED,
-		benchmarks.BenchmarkQsortBACKSORTED,
-		benchmarks.BenchmarkQsortPRESORTED,
+		benchmarks.BenchmarkQuickSortMIXED,
+		benchmarks.BenchmarkQuickSortBACKSORTED,
+		benchmarks.BenchmarkQuickSortPRESORTED,
+		benchmarks.BenchmarkMergeSortMIXED,
+		benchmarks.BenchmarkMergeSortBACKSORTED,
+		benchmarks.BenchmarkMergeSortPRESORTED,
+		benchmarks.BenchmarkSelectionSortMIXED,
+		benchmarks.BenchmarkSelectionSortBACKSORTED,
+		benchmarks.BenchmarkSelectionSortPRESORTED,
 	}
 
-	for k, fn := range bench  {
-		res := fmt.Sprintf("Slice Type: %s, Algortihm: %s, Information: %s",
+	for k, fn := range bench {
+		res := fmt.Sprintf("Slice Type: %s, Algorithm: %s, Information: %s",
 			benchmarks.On,
 			misc.GetFunctionName(fn),
 			testing.Benchmark(fn).String(),
 		)
 
-		if k % 3 == 0 {
+		if k%3 == 0 {
 			_, _ = fmt.Fprintln(f)
 		}
 
@@ -42,4 +48,3 @@ func main() {
 		}
 	}
 }
-

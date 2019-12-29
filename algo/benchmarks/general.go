@@ -32,9 +32,7 @@ func BenchmarkBubbleSortPRESORTED(b *testing.B) {
 	}
 }
 
-
-
-func BenchmarkQsortMIXED(b *testing.B) {
+func BenchmarkQuickSortMIXED(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		On = "MIXED"
 		sl := misc.GenerateSlice(misc.MIXED, 1000)
@@ -42,7 +40,7 @@ func BenchmarkQsortMIXED(b *testing.B) {
 	}
 }
 
-func BenchmarkQsortBACKSORTED(b *testing.B) {
+func BenchmarkQuickSortBACKSORTED(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		On = "BACK_SORTED"
 		sl := misc.GenerateSlice(misc.BACK_SORTED, 1000)
@@ -50,10 +48,58 @@ func BenchmarkQsortBACKSORTED(b *testing.B) {
 	}
 }
 
-func BenchmarkQsortPRESORTED(b *testing.B) {
+func BenchmarkQuickSortPRESORTED(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		On = "PRE_SORTED"
 		sl := misc.GenerateSlice(misc.PRE_SORTED, 1000)
 		algo.Qsort(sl)
+	}
+}
+
+func BenchmarkMergeSortMIXED(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		On = "MIXED"
+		sl := misc.GenerateSlice(misc.MIXED, 1000)
+		algo.MSort(sl)
+	}
+}
+
+func BenchmarkMergeSortBACKSORTED(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		On = "BACK_SORTED"
+		sl := misc.GenerateSlice(misc.BACK_SORTED, 1000)
+		algo.MSort(sl)
+	}
+}
+
+func BenchmarkMergeSortPRESORTED(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		On = "PRE_SORTED"
+		sl := misc.GenerateSlice(misc.PRE_SORTED, 1000)
+		algo.MSort(sl)
+	}
+}
+
+func BenchmarkSelectionSortMIXED(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		On = "MIXED"
+		sl := misc.GenerateSlice(misc.MIXED, 1000)
+		algo.SelectionSort(sl)
+	}
+}
+
+func BenchmarkSelectionSortBACKSORTED(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		On = "BACK_SORTED"
+		sl := misc.GenerateSlice(misc.BACK_SORTED, 1000)
+		algo.SelectionSort(sl)
+	}
+}
+
+func BenchmarkSelectionSortPRESORTED(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		On = "PRE_SORTED"
+		sl := misc.GenerateSlice(misc.PRE_SORTED, 1000)
+		algo.SelectionSort(sl)
 	}
 }
